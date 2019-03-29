@@ -4,7 +4,7 @@ from pygame.locals import *
 from settings import Setting
 from player import Player
 
-pygame.init()
+pygame.init()		#initialize module of pygame
 
 settings = Setting()        #create a setting instance
 player = Player()       #create a player instance
@@ -16,15 +16,20 @@ pygame.display.set_caption('move_surface')
 
 while True:
     screen.fill(settings.bg_color)
-    for event in pygame.event.get():
+    
+	"""event manage"""
+	for event in pygame.event.get():
         if event.type == QUIT:
             pygame.quit()
             sys.exit()
         elif event.type == KEYDOWN:
-            if event.key == K_q:
+            if event.key == K_q:		#press the shortcut key 'q' to exit 
                 pygame.quit()
                 sys.exit()
-    player.update(settings.sur_speed)
+   
+    """screen update"""
+	player.update(settings.sur_speed)
     screen.blit(player.image, player.rect)
     pygame.display.update()
-    SYSClock.tick(settings.fps)
+    
+	SYSClock.tick(settings.fps)		#frames per second
