@@ -1,4 +1,3 @@
-
 import pygame, sys
 from pygame.locals import *
 from settings import Setting
@@ -7,7 +6,7 @@ from player import Player
 pygame.init()		#initialize module of pygame
 
 settings = Setting()        #create a setting instance
-player = Player()       #create a player instance
+player = Player(settings)       #create a player instance
 
 SYSClock = pygame.time.Clock()
 
@@ -17,8 +16,8 @@ pygame.display.set_caption('move_surface')
 while True:
     screen.fill(settings.bg_color)
     
-	"""event manage"""
-	for event in pygame.event.get():
+    """event manage"""
+    for event in pygame.event.get():
         if event.type == QUIT:
             pygame.quit()
             sys.exit()
@@ -28,8 +27,8 @@ while True:
                 sys.exit()
    
     """screen update"""
-	player.update(settings.sur_speed)
+    player.update(settings.sur_speed)
     screen.blit(player.image, player.rect)
     pygame.display.update()
     
-	SYSClock.tick(settings.fps)		#frames per second
+    SYSClock.tick(settings.fps)		#frames per second

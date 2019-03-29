@@ -10,8 +10,8 @@ class Player(object):
         self.rect = self.image.get_rect()
         self.rect.topleft = settings.sur_topleft
 
-        """moving behaviors"""
-        def update(self, speed):
-            self.rect.left += speed
-            if self.rect.left > 630:
-                self.rect.left = -10
+    """moving behaviors"""
+    def update(self, speed):
+        self.rect.left += speed
+        if self.rect.left > 630:
+            self.rect.left = -10
